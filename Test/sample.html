@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Global Mobility Reports Dashboard</title>
+        <link rel="stylesheet" href="ui/bootstraptheme.css">
+        <script src="ui/jquery/dist/jquery.min.js"></script>
+        <script src="ui/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="ui/lodash/lodash.min.js"></script>
+        <script src="ui/g1/dist/g1.min.js"></script>
+        <script src="ui/vega/build/vega.min.js"></script>
+        <script src="ui/vega-lite/build/vega-lite.min.js"></script>
+    </head>
+    <body>
+        <!-- <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Retail and Recreation</a>
+              <a class="dropdown-item" href="#">Grocery and Pharmacy</a>
+              <a class="dropdown-item" href="#">Parks</a>
+            </div>
+          </div> -->
+          <div class="formhandler" data-src="toprecreationcountries"></div>
+<script>
+  $('.formhandler').formhandler({pageSize: 5})
+</script>
+    </body>
+        
+    </html>
