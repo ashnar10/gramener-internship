@@ -18,55 +18,67 @@ url:
         Cache-Control: private, max-age=1
     cache: {expiry: {duration: 1}}
 
-  formathandler-topretailcountries: 
-    pattern: /$YAMLURL/topretailcountries 
+  mobility-filters:
+    pattern: /$YAMLURL/filters
+    handler: FunctionHandler
+    kwargs:
+      function: google.filters
+
+  mobility-google-data:
+    pattern: /$YAMLURL/gdata
+    handler: FormHandler
+    kwargs:
+      url: $YAMLPATH/Global_Mobility_Report.csv
+      modify: google.top_retail(data, handler.args)
+
+  formathandler-topretailcountries:
+    pattern: /$YAMLURL/topretailcountries
     handler: FormHandler
     kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_retail(data, handler.args)
 
-  formathandler-topgrocerycountries: 
+  formathandler-topgrocerycountries:
     pattern: /$YAMLURL/topgrocerycountries
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_grocery(data, handler.args)
-      
-  formathandler-topparkcountries: 
+
+  formathandler-topparkcountries:
     pattern: /$YAMLURL/topparkcountries
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_parks(data, handler.args)
 
-  formathandler-toptransitcountries: 
+  formathandler-toptransitcountries:
     pattern: /$YAMLURL/toptransitcountries
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_transit(data, handler.args)
 
-  formathandler-topworkplacecountries: 
+  formathandler-topworkplacecountries:
     pattern: /$YAMLURL/topworkplacecountries
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_workplaces(data, handler.args)
-  
+
   formathandler-UnitedStates:
     pattern: /$YAMLURL/UnitedStates
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/lockdown_data.csv
       function: google.United_States(data, handler.args)
-    
-  formathandler-toprecreationcountries: 
+
+  formathandler-toprecreationcountries:
     pattern: /$YAMLURL/toprecreationcountries
     handler: FormHandler
-    kwargs: 
+    kwargs:
       url: $YAMLPATH/Global_Mobility_Report.csv
       function: google.top_categories(data, handler.args)
-      
 
 
 
@@ -74,7 +86,8 @@ url:
 
 
 
-      
+
+
 
 
   Test-login:

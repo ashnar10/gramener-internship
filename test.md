@@ -2,6 +2,7 @@
 
 
 ### Before Changes
+`git clone <link>`
 `git status` # checks the status
 `git pull` # pull the latest code from repo
 
