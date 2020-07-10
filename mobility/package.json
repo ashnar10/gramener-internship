@@ -1,0 +1,22 @@
+{
+  "name": "mobilility",
+  "version": "1.0.0",
+  "description": "Google Mobility",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bootstrap-select-v4": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC"
+}
