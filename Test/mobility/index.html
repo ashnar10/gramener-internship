@@ -1,5 +1,4 @@
 {% import mobility %}
-{% import apple %}
 <!doctype html>
 <html lang="en">
 
@@ -16,14 +15,9 @@
   {% set base = '.' %}
   {% include template-navbar.html %}
   <!-- TODO: Filter bars -->
-  <script type = "text/html" class = "googleinsight">
-    <%before = data.filter(function(d){return d.type == 'Before'})[0] %>
-    <%after = data.filter(function(d){return d.type == 'After'})[0] %>
-    <p> In <%=country%> google users are increasing mobility in <%= category%> before covid by <%= before[category]%> percent, and after covid by <%= after[category]%> percent. .</p>
+  <script type = "text/html" class = "insight">
     
-    <!-- <script type = "text/html" class = "appleinsight">
-    <%before = data.filter(function(d){return d.type == 'Before'})[0] %>
-    <p> In <%=country%> apple users are increasing mobility before covid by <%= before %> percent. -->
+    <p> In <%=country%> google users are increasing mobility in <%= category%> before covid by <%= before%> percent.</p>
 
  
 
@@ -87,8 +81,8 @@
           y: $('.category-picker').selectpicker('val')
         })
         $.getJSON('googleinsights?country='+$('.country-picker').selectpicker('val'), function(data){
-          console.log(data)
-        $('script.googleinsight').template({'country':$('.country-picker').selectpicker('val') , 'category': $('.category-picker').selectpicker('val'), 'data': data.data});
+          
+        $('script.insight').template({'country':$('.country-picker').selectpicker('val') , 'category': $('.category-picker').selectpicker('val'), 'before':$()});
       })
 
 
@@ -97,9 +91,6 @@
           x: 'transportation_type', 
           y: 'value'
         })
-
-        $.getJSON('appleinsights?region='+$('.country-picker').selectpicker('val'), function(data){
-          $('script.appleinsight').template({'country':$('.country-picker').selectpicker('val') , 'data': data.data});
     //     var insight = {'car':'https://svgsilh.com/svg/2386838.svg', 'walking':' https://upload.wikimedia.org/wikipedia/commons/8/8a/Man_Walking_Cartoon_Vector.svg',
     // 'transit': 'https://img.icons8.com/cotton/64/000000/traditional-school-bus--v1.png' }
       
@@ -111,7 +102,7 @@
     }
      
       )}
-      )}
+    
   </script>
  
 </body>

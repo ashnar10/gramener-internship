@@ -36,7 +36,7 @@ def google_insights(handler):
     country = handler.argparse(country={'default': 'United Arab Emirates'})['country']
     if country != 'worldwide':
         df = df[df['country_region'] == country]
-    return {'data':df.groupby('type').mean().reset_index()}
+    return {'data':df.to_json(orient='records')}
 
 data1 = gramex.cache.open('apple_mobility.csv', 'csv')
 cols = ['region','transportation_type', 'value']
@@ -47,10 +47,6 @@ def apple(handler):
     if region!= 'worldwide':
         df = df[df['region']== region]
         return{'data1': df.to_json(orient='records')}
-
-
-
-
 
 
 

@@ -10,7 +10,7 @@ url:
     kwargs:
       path: $YAMLPATH/index.html
       # See https://learn.gramener.com/guide/auth/#authorization for auth rules
-      auth: true
+      # auth: true
       template: true
       headers:
         # Templates may have user-specific content. Cache privately.
@@ -26,23 +26,47 @@ url:
       function: mobility.google
       headers:
         Content-Type: application/json
-
-  mobility-login:
-    # Default login_url is /login/. If you change this, change auth.login_url
-    # https://learn.gramener.com/guide/auth/#login-urls
-    pattern: /$YAMLURL/login/
-    # You MUST change the auth before deploying. DBAuth is commonly used.
-    # See https://learn.gramener.com/guide/auth/#database-auth
-    handler: SimpleAuth
+  
+  mobility-apple-data:
+    pattern: /$YAMLURL/apple
+    handler: FunctionHandler
     kwargs:
-      template: $YAMLPATH/login.html
-      credentials:
-        alpha: alpha
-        beta: beta
+      function: mobility.apple
+      headers:
+        Content-Type: application/json
+  
+  mobility-googleinsights-data:
+    pattern: /$YAMLURL/googleinsights
+    handler: FunctionHandler
+    kwargs:
+      function: mobility.google_insights
+      headers:
+        Content-Type: application/json
 
-  mobility-logout:
-    pattern: /$YAMLURL/logout/
-    handler: LogoutHandler
+  mobility-appleinsights-data:
+    pattern: /$YAMLURL/appleinsights
+    handler: FunctionHandler
+    kwargs:
+      function: apple.apple_insights
+      headers:
+        Content-Type: application/json
+
+  # mobility-login:
+  #   # Default login_url is /login/. If you change this, change auth.login_url
+  #   # https://learn.gramener.com/guide/auth/#login-urls
+  #   pattern: /$YAMLURL/login/
+  #   # You MUST change the auth before deploying. DBAuth is commonly used.
+  #   # See https://learn.gramener.com/guide/auth/#database-auth
+  #   handler: SimpleAuth
+  #   kwargs:
+  #     template: $YAMLPATH/login.html
+  #     credentials:
+  #       alpha: alpha
+  #       beta: beta
+
+  # mobility-logout:
+  #   pattern: /$YAMLURL/logout/
+  #   handler: LogoutHandler
 
 
 
